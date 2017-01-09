@@ -32,8 +32,8 @@ Chunk ID #0 signals the end of the description of data chunks.
 WSYS Format:
 Chunk ID 3 points to WSYS data. The data starts with a 4 byte string spelling "WSYS".
 Structure: 4 bytes unknown (size or some kind of offset?) and 8 bytes of unknown values (all zeros?)
-4 bytes offset from the start of WSYS to the start of WINF.
-Rest of WSYS is not handled by wwdumpsnd.
+4 bytes offset from the start of WSYS to the start of WINF. Leave the data that follows as-is,
+it will become relevant later when you have to seek to offsets that are in relation to WSYS.
 
 WINF Format:
 First 4 bytes spell "WINF", followed by a value that specifies the amount of .aw files used. Then follow the 4 byte offsets 
