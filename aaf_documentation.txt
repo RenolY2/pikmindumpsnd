@@ -1,0 +1,28 @@
+
+
+** THE .AAF FORMAT **
+.aaf is used by a few Nintendo games (e.g. Zelda: Wind Waker, Pikmin 2) for what appears to be soundbanks.
+
+
+
+** Description **
+.aaf has no magic number that would identify the format. Instead, it starts off with the description of data chunks.
+All values are 4 byte big big endian unsigned integers. For each chunk the first value describes the chunk ID. 
+
+
+Chunk ID #1: Offset | Size | Unknown (always 0?)
+Purpose of this chunk is unknown as of now. Offset and size describes the position of a data piece in the aaf file.
+
+Chunk ID #2: Several entries in the form of Offset | Size | Unknown (always 0?)
+Purpose unknown. Each entry describes the position and size of a data piece in the aaf file.
+The list of entries is terminated with a value of 0, i.e. if you read an offset and the offset is 0,
+stop reading at once because the next chunk starts.
+
+Chunk ID #3: Format similar to #2, seems to contain relevant soundbank data. This is handled by wwdumpsnd using doWSYS.
+
+Chunk ID #5: Format see #1. Purpose unknown.
+Chunk ID #6: Format see #1. Purpose unknown.
+Chunk ID #7: Format see #1. Purpose unknown.
+
+Chunk ID #0 signals the end of the description of data chunks.
+
