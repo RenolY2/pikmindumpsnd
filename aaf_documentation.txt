@@ -36,3 +36,6 @@ Structure: 4 bytes unknown (size or some kind of offset?) and 8 bytes of unknown
 Rest of WSYS is not handled by wwdumpsnd.
 
 WINF Format:
+First 4 bytes spell "WINF", followed by a value that specifies the amount of .aw files used. Then follow the 4 byte offsets 
+of as many aw files as the value before specified.
+
