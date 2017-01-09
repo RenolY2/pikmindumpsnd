@@ -18,7 +18,8 @@ Purpose unknown. Each entry describes the position and size of a data piece in t
 The list of entries is terminated with a value of 0, i.e. if you read an offset and the offset is 0,
 stop reading at once because the next chunk starts.
 
-Chunk ID #3: Format similar to #2, seems to contain relevant soundbank data. This is handled by wwdumpsnd using doWSYS.
+Chunk ID #3: Format similar to #2. 
+Only seems to contain one entry in Pikmin 2, and the unknown value is 2. The offset points to data starting with WSYS.
 
 Chunk ID #5: Format see #1. Purpose unknown.
 Chunk ID #6: Format see #1. Purpose unknown.
@@ -26,3 +27,12 @@ Chunk ID #7: Format see #1. Purpose unknown.
 
 Chunk ID #0 signals the end of the description of data chunks.
 
+-------------------------
+
+WSYS Format:
+Chunk ID 3 points to WSYS data. The data starts with a 4 byte string spelling "WSYS".
+Structure: 4 bytes unknown (size or some kind of offset?) and 8 bytes of unknown values (all zeros?)
+4 bytes offset from the start of WSYS to the start of WINF.
+Rest of WSYS is not handled by wwdumpsnd.
+
+WINF Format:
